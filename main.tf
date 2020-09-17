@@ -107,6 +107,10 @@ data aws_ami "ubuntu" {
 resource "aws_eip" "hashicat" {
   instance = aws_instance.hashicat.id
   vpc      = true
+  tags = {
+      Billable = "true"
+      Department = "devops"
+  }
 }
 
 resource "aws_eip_association" "hashicat" {
